@@ -2,7 +2,7 @@ var mysql = require('mysql');
 
 //database
 const conn = mysql.createConnection({
-    host:'localhost',
+    host:'localhost:801',
     user : 'root',
     password:'',
     database:'dbrestapi'
