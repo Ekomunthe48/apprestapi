@@ -5,5 +5,5 @@ var router = express.Router();
 
 // daftar
 router.post('/api/v1/register', auth.registrasi);
-
+router.post('/api/v1/login', auth.login);
 module.exports = router;
