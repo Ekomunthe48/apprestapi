@@ -95,4 +95,7 @@ exports.login = function(req,res){
     });
 }
 
+exports.halamanrahasia = function(req,res){
+    response.ok("halaman ini hanya untuk para denial dengan role = 2", res)
+}
 
