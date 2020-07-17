@@ -17,7 +17,7 @@ exports.registrasi = function (req,res){
         tanggal_daftar : new Date()
     }
 
-    var query = "SELECT email FROM ?? WHERE ??";
+    var query = "SELECT email FROM ?? WHERE ??=?";
     var table = ["user", "email", post.email];
 
     query = mysql.format(query,table);
@@ -27,18 +27,18 @@ exports.registrasi = function (req,res){
             console.log(error);
         }else {
             if(rows.length == 0){
-                var query = "INSERT INTO ?? SET ??";
+                var query = "INSERT INTO ?? SET ?";
                 var table = ["user"];
                 query = mysql.format(query, table);
                 connection.query(query, post, function(error, rows){
                     if(error){
                         console.log(error);
                     }else{
-                        response.oknested("Berhasil menambahkan wibu baru", res);
+                        response.ok("Berhasil menambahkan wibu baru", res);
                     }
                 });
             }else {
-                response.ok("Email Sudah terdaftar");
+                response.ok("Email Sudah terdaftar", res);
             }
         }
     });
